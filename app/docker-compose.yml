@@ -1,0 +1,14 @@
+version: '3'
+services:
+  back:
+    image: xsaille/back-image
+    environment:
+      - CURRENT_ENVIRONMENT=dev
+#    volumes:
+#      - ./back-logs:/app/logs
+  front:
+    image: xsaille/front-image
+    ports:
+      - "8080:80"
+    environment:
+      - WS_BACK_URL=http://back:5000
